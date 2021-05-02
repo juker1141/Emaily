@@ -6,11 +6,16 @@ module.exports = (app) => {
     scope: ['profile', 'email']
   }));
 
-  app.get('/auth/google/callback', passport.authenticate('google'));
+  app.get('/auth/google/callback', passport.authenticate('google'),
+    (req, res) => {
+      res.redirect('/surveys');
+      // 重新導向至 '/surveys'
+    }
+  );
 
   app.get('/api/logout', (req, res) => {
     req.logout();
-    res.send(req.user);
+    res.redirect('/');
   })
 
   app.get('/api/current_user', (req, res) => {

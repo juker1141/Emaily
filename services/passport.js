@@ -29,21 +29,18 @@ passport.use(
     clientSecret: keys.googleClientSecret,
     callbackURL: '/auth/google/callback',
     proxy: true,
-  }, (accessToken, refreshToken, profile, done) => {
-    User.findOne({ googleId: profile.id })
+  },
+    async (accessToken, refreshToken, profile, done) => {
+      const existingUser = await User.findOne({ googleId: profile.id })
       // 尋找是否有相符的ID
-      .then((existingUser) => {
-        if (existingUser) {
-          // 我們已有此使用者資料
-          done(null, existingUser);
-          // 第一個參數是錯誤訊息的Object，然而在此範例中
-          // 我們不關心錯誤訊息， 所以使用 null
-        } else {
-          // 我們沒有此使用者的資料，建立一位新的使用者
-          new User({ googleId: profile.id })
-            .save()
-            .then((user) => done(null, user));
-        }
-      })
-  })
+      if (existingUser) {
+        // 我們已有此使用者資料
+        return done(null, existingUser);
+        // 第一個參數是錯誤訊息的Object，然而在此範例中
+        // 我們不關心錯誤訊息， 所以使用 null
+      }
+      // 我們沒有此使用者的資料，建立一位新的使用者
+      const user = await new User({ googleId: profile.id }).save();
+      done(null, user);
+    })
 );
