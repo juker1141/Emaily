@@ -5,9 +5,9 @@ import * as actions from '../actions';
 
 import Header from './Header';
 import Landing from './Landing';
-// import DashBoard from './DashBoard';
+import Dashboard from './Dashboard';
 
-const DashBoard = () => <h2>DashBoard</h2>;
+
 const SurveyNew = () => <h2>SurveyNew</h2>;
 
 class App extends React.Component {
@@ -22,7 +22,7 @@ class App extends React.Component {
           <div>{/* BrowserRouter 內只能有一個元件 所以我們用一個 div 包起來 */}
             <Header />
             <Route exact path="/" component={Landing} />
-            <Route exact path="/surveys" component={DashBoard} />
+            <Route exact path="/surveys" component={Dashboard} />
             <Route path="/surveys/new" component={SurveyNew} />
           </div>
         </BrowserRouter>

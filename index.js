@@ -6,6 +6,7 @@ const passport = require('passport');
 const bodyParser = require('body-parser');
 const keys = require('./config/keys');
 require('./models/User');
+require('./models/Survey');
 require('./services/passport'); // 因為該檔案沒有export, 所以只需要執行該程式
 
 mongoose.connect(keys.mongoURI, {
@@ -31,6 +32,7 @@ app.use(passport.session());
 
 require('./routes/authRoutes')(app); // 這裡的 route 將會 export 一個 function
 require('./routes/billingRoutes')(app); // 所以在後方加入() 來執行他
+require('./routes/surveyRoutes')(app);
 
 if (process.env.NODE_ENV === 'production') {
   // 確保 Express 會在 production 模式下運行 main.js or main.css
