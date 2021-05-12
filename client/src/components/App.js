@@ -6,9 +6,7 @@ import * as actions from '../actions';
 import Header from './Header';
 import Landing from './Landing';
 import Dashboard from './Dashboard';
-
-
-const SurveyNew = () => <h2>SurveyNew</h2>;
+import SurveyNew from './surveys/SurveyNew';
 
 class App extends React.Component {
   componentDidMount() {
@@ -17,9 +15,9 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="container mx-auto">
+      <div>
         <BrowserRouter>
-          <div>{/* BrowserRouter 內只能有一個元件 所以我們用一個 div 包起來 */}
+          <div className="container mx-auto">{/* BrowserRouter 內只能有一個元件 所以我們用一個 div 包起來 */}
             <Header />
             <Route exact path="/" component={Landing} />
             <Route exact path="/surveys" component={Dashboard} />

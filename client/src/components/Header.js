@@ -35,7 +35,7 @@ class Header extends React.Component {
 
   render() {
     return (
-      <nav className="flex items-center justify-between flex-wrap p-6 mb-5">
+      <nav className="flex items-center justify-between flex-wrap p-6 mb-12">
         <Link
           to={this.props.auth ? '/surveys' : '/'}
           className="flex item-center text-2xl"
