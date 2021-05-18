@@ -3,17 +3,12 @@ import React from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { Link } from 'react-router-dom';
 import SurveyField from './SurveyField';
-
-const FIELDS = [
-  { label: "Survey Title", name: "title" },
-  { label: "Subject Line", name: "subject" },
-  { label: "Email Body", name: "body" },
-  { label: "Recipient List", name: "emails" },
-];
+import validateEmails from '../../utils/validateEmails';
+import formFields from './formFields';
 
 class SurveyForm extends React.Component {
   renderFields() {
-    return _.map(FIELDS, ({ label, name }) => {
+    return _.map(formFields, ({ label, name }) => {
       return (
         <Field key={name} component={SurveyField} type="text" label={label} name={name} />
       );
@@ -25,9 +20,8 @@ class SurveyForm extends React.Component {
       <div>
         <form
           className="w-full h-screen flex justify-center"
-          onSubmit={this.props.handleSubmit((values) => {
-            console.log(values) // handleSubmit 是 reduxForm 的函式
-          })}
+          onSubmit={this.props.handleSubmit(this.props.onSurveySubmit)}
+        // handleSubmit 是 reduxForm 的函式
         >
           <div className="w-1/2">
             {this.renderFields()}
@@ -35,14 +29,15 @@ class SurveyForm extends React.Component {
             <div className="mt-8 flex justify-between">
               <Link
                 to="/surveys"
-                className="btn text-base border-2 font-bold py-2 px-6
-                focus:outline-none focus:shadow-outline rounded"
+                className="text-base border-2 font-bold py-2 px-6
+                focus:outline-none focus:shadow-outline rounded
+                hover:bg-gray-500 hover:text-white hover:border-white"
               >
                 Cancel
               </Link>
               <button
-                className="bg-black text-white text-base font-bold py-2 px-6
-                flex items-center rounded"
+                className="bg-blue-500 text-white text-base font-bold py-2 px-6
+                flex items-center rounded hover:bg-blue-700"
                 type="submit"
               >
                 Next
@@ -62,7 +57,9 @@ class SurveyForm extends React.Component {
 function validate(values) {
   const errors = {};
 
-  _.each(FIELDS, ({ name }) => {
+  errors.recipients = validateEmails(values.recipients || '');
+
+  _.each(formFields, ({ name }) => {
     if (!values[name]) {
       errors[name] = `You must provide a ${name}`;
     }
@@ -74,4 +71,5 @@ function validate(values) {
 export default reduxForm({
   validate, // 驗證用戶輸入的資料
   form: 'surveyForm',
+  destroyOnUnmount: false
 })(SurveyForm);

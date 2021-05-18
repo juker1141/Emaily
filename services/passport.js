@@ -11,7 +11,7 @@ passport.serializeUser((user, done) => {
   // 不使用 google 的個人 ID 是因為用戶不一定是使用 google (也許是FB)
   done(null, user.id);
   // 這邊的 user.id 指的不是 google 用戶的id
-  // 這邊的 id 是使用 mongoDB 時，自動分配給此物件的 id
+  // 這邊的 id 是使用 mongoDB 時，自動分配給此物件的 _id
 });
 
 passport.deserializeUser((id, done) => {
