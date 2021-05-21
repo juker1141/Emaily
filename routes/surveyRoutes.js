@@ -7,10 +7,21 @@ const requireLogin = require('../middlewares/requireLogin');
 const requireCredits = require('../middlewares/requireCredits');
 const MailgunMailer = require('../services/MailgunMailer');
 const surveyTemplate = require('../services/emailTemplates/surveyTemplate');
+const cardColors = require('../utils/cardColors')
 
 const Survey = mongoose.model('surveys');
 
 module.exports = (app) => {
+  app.delete('/api/surveys/delete', requireLogin, async (req, res) => {
+    // const survey = await Survey.findOne()
+    await Survey.deleteOne({ _id: req.body.SurveyId })
+    const surveys = await Survey.find({ _user: req.user.id })
+      .select({ recipients: false }); // 告訴 mongoose 不要回傳 recipients 給我們
+    // 因為我們不需要那些資料
+
+    res.send(surveys);
+  });
+
   app.get('/api/surveys', requireLogin, async (req, res) => {
     const surveys = await Survey.find({ _user: req.user.id })
       .select({ recipients: false }); // 告訴 mongoose 不要回傳 recipients 給我們
@@ -47,6 +58,8 @@ module.exports = (app) => {
   app.post('/api/surveys', requireLogin, requireCredits, async (req, res) => {
     const { title, subject, body, recipients } = req.body;
 
+    const cardColor = cardColors[Math.floor(Math.random() * cardColors.length)];
+
     const survey = new Survey({
       title,
       subject,
@@ -54,6 +67,7 @@ module.exports = (app) => {
       recipients: recipients.split(",").map((email) => ({ email: email.trim() })),
       _user: req.user.id,
       dateSent: Date.now(),
+      cardColor,
     });
 
     // 這裡很適合寄 Email
