@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { loadStripe } from '@stripe/stripe-js';
 import { FETCH_USER, FETCH_SURVEYS } from './types';
 
 export const fetchUser = () => async (dispatch) => {
@@ -7,12 +8,19 @@ export const fetchUser = () => async (dispatch) => {
   dispatch({ type: FETCH_USER, payload: res.data });
 };
 
-export const handleToken = (token) => async (dispatch) => {
-  const res = await axios.post('/api/stripe', token);
+export const addCredits = (quantity) => async (dispatch) => {
+  const res = await axios.post('/api/creat-checkout-session', { quantity });
+  const stripe = await loadStripe(process.env.REACT_APP_STRIPE_KEY);
+  stripe.redirectToCheckout({ sessionId: res.data.id })
 
   dispatch({ type: FETCH_USER, payload: res.data });
-  // 因為我們要更新使用者剩餘的 credits 數量
-  // 所以使用一樣的 reducer 去更新整個使用者就可以了
+};
+
+export const checkoutSuccess = (history) => async (dispatch) => {
+  const res = await axios.get('/api/checkout/success');
+
+  history.push("/surveys/addcredits/success");
+  dispatch({ type: FETCH_USER, payload: res.data });
 }
 
 export const submitSurvey = (values, history) => async (dispatch) => {

@@ -21,12 +21,12 @@ const Modal = (props) => {
             </span>
           </div>
           <div className={`border-8 rounded-t border-${props.mainColor}`}></div>
-          <div className="px-4 pt-8 pb-4">
+          <div className="px-4 pt-8 pb-6">
             <div className="text-center mt-6">
               {props.children}
             </div>
           </div>
-          <div className="flex justify-between px-16 py-3 ">
+          <div className="flex justify-center px-16 py-3">
             {props.actions}
           </div>
         </div>

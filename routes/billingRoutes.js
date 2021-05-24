@@ -3,17 +3,24 @@ const stripe = require('stripe')(keys.stripeSecretKey);
 const requireLogin = require('../middlewares/requireLogin');
 
 module.exports = (app) => {
-  app.post('/api/stripe', requireLogin, async (req, res) => {
-    // 第二個參數沒有執行的原因是 我們希望只有使用者來到這個api時才調用
-    // 而不是程式開啟時就調用
-    const charge = await stripe.charges.create({
-      amount: 500,
-      currency: 'usd',
-      description: '$5 for 5 credits',
-      source: req.body.id,
+  app.post('/api/creat-checkout-session', requireLogin, async (req, res) => {
+    const seesion = await stripe.checkout.sessions.create({
+      success_url: `${keys.redirectDomain}/surveys/addcredits/success/session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${keys.redirectDomain}/surveys/addcredits/cancel`,
+      payment_method_types: ['card'],
+      mode: 'payment',
+      line_items: [{
+        price: 'price_1IqdShJvP55xkEyB7tTSZziM',
+        quantity: req.body.quantity,
+      }],
+    })
+    return res.json({
+      id: seesion.id,
     });
+  });
 
-    req.user.credits += 5; // 增加 5個額度給已付費的使用者
+  app.get('/api/checkout/success', requireLogin, async (req, res) => {
+    req.user.credits += 5; // 若成功進入success網頁, 增加 5個額度給已付費的使用者
     const user = await req.user.save();
 
     res.send(user);

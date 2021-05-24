@@ -14,14 +14,13 @@ class SurveyList extends React.Component {
     this.props.fetchSurveys();
   };
 
-  actionsButtons() {
+  actionsButtons(maincolor, secondarycolor) {
     return (
       <React.Fragment>
         <button
           onClick={() => { this.setState({ showDeleteModal: false, currentSurveyId: '' }) }}
-          className="px-6 py-2 rounded border font-bold text-gray-500 border-gray-500
-                hover:bg-gray-500 hover:text-white hover:border-0 focus:outline-none focus:ring
-                hover:shadow-none transition-all duration-300"
+          className={`px-6 py-2 mr-6 rounded border font-bold text-${secondarycolor}-500
+            border-${secondarycolor}-500 hover:bg-${secondarycolor}-500 hover:text-white hover:border-0 focus:outline-none focus:ring hover:shadow-none transition-all duration-300`}
         >
           Cancel
             </button>
@@ -30,9 +29,9 @@ class SurveyList extends React.Component {
             this.props.deleteSurvey(this.state.currentSurveyId);
             this.setState({ showDeleteModal: false, currentSurveyId: '' })
           }}
-          className="bg-red-600 text-white px-6 py-2 font-bold rounded
-              hover:bg-opacity-80 focus:outline-none focus:ring
-              hover:shadow-none transition-all duration-300"
+          className={`bg-${maincolor}-600 text-white px-6 py-2 font-bold rounded
+              hover:bg-${maincolor}-800 focus:outline-none focus:ring
+              hover:shadow-none transition-all duration-300`}
         >
           Delete
         </button>
@@ -46,7 +45,7 @@ class SurveyList extends React.Component {
         <Modal
           icon="delete_forever"
           mainColor="red-600"
-          actions={this.actionsButtons()}
+          actions={this.actionsButtons('red', 'gray')}
           onCancel={() => { this.setState({ showDeleteModal: false, currentSurveyId: '' }) }}
         >
           <div className="font-black text-xl mb-3">Delete Survey</div>
@@ -76,7 +75,7 @@ class SurveyList extends React.Component {
           >
             <div className="px-8 py-6">
               <div className="flex justify-between">
-                <div className="text-3xl font-bold">{survey.title}{this.state.currentSurveyId}</div>
+                <div className="text-3xl font-bold">{survey.title}</div>
                 <button
                   onClick={() => {
                     this.setState({ showDeleteModal: true, currentSurveyId: survey._id })

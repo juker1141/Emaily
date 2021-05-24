@@ -7,6 +7,9 @@ import Header from './Header';
 import Landing from './Landing';
 import Dashboard from './Dashboard';
 import SurveyNew from './surveys/SurveyNew';
+import PaymentsAdd from './credits/PaymentsAdd';
+import PaymentsSuccess from './credits/PaymentsSuccess';
+import PaymentsCancel from './credits/PaymentsCancel';
 
 class App extends React.Component {
   componentDidMount() {
@@ -22,6 +25,9 @@ class App extends React.Component {
             <Route exact path="/" component={Landing} />
             <Route exact path="/surveys" component={Dashboard} />
             <Route exact path="/surveys/new" component={SurveyNew} />
+            <Route exact path="/surveys/addcredits/success/session_id=:id" component={PaymentsAdd} />
+            <Route exact path="/surveys/addcredits/success" component={PaymentsSuccess} />
+            <Route exact path="/surveys/addcredits/cancel" component={PaymentsCancel} />
           </div>
         </BrowserRouter>
       </div>
