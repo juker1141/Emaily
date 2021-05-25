@@ -2,6 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 const Modal = (props) => {
+  const iconClass = (props) => {
+    return `absolute -top-6 left-modalIcon rounded-full bg-${props.mainColor}`;
+  }
+
+  const borderClass = (props) => {
+    return `border-8 rounded-t border-${props.mainColor}`;
+  }
+
   return ReactDOM.createPortal(
     <div
       className="fixed inset-0 w-full h-full z-20 bg-black
@@ -15,12 +23,12 @@ const Modal = (props) => {
         <div
           className="relative bg-white shadow-lg rounded-md text-gray-900 z-20"
         >
-          <div className={`absolute -top-6 left-modalIcon rounded-full bg-${props.mainColor}`}>
+          <div className={iconClass(props)}>
             <span className="material-icons-outlined text-5xl p-2 text-white">
               {props.icon}
             </span>
           </div>
-          <div className={`border-8 rounded-t border-${props.mainColor}`}></div>
+          <div className={borderClass(props)}></div>
           <div className="px-4 pt-8 pb-6">
             <div className="text-center mt-6">
               {props.children}
