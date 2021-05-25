@@ -26,7 +26,7 @@ const PaymentsCancel = () => {
     <div>
       <Modal
         icon="priority_high"
-        mainColor="yellow-400"
+        colorStatus="warning"
         actions={actionsButtons('yellow')}
       >
         <div className="text-xl font-black mb-5">OOPS !</div>

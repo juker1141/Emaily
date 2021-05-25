@@ -3,11 +3,29 @@ import ReactDOM from 'react-dom';
 
 const Modal = (props) => {
   const iconClass = (props) => {
-    return `absolute -top-6 left-modalIcon rounded-full bg-${props.mainColor}`;
+    switch (props.colorStatus) {
+      case 'success':
+        return `bg-green-500`;
+      case 'warning':
+        return `bg-yellow-400`;
+      case 'danger':
+        return `bg-red-600`;
+      default:
+        return null;
+    };
   }
 
   const borderClass = (props) => {
-    return `border-8 rounded-t border-${props.mainColor}`;
+    switch (props.colorStatus) {
+      case 'success':
+        return `border-green-500`;
+      case 'warning':
+        return `border-yellow-400`;
+      case 'danger':
+        return `border-red-600`;
+      default:
+        return null;
+    };
   }
 
   return ReactDOM.createPortal(
@@ -23,12 +41,12 @@ const Modal = (props) => {
         <div
           className="relative bg-white shadow-lg rounded-md text-gray-900 z-20"
         >
-          <div className={iconClass(props)}>
+          <div className={`absolute -top-6 left-modalIcon rounded-full ${iconClass(props)}`}>
             <span className="material-icons-outlined text-5xl p-2 text-white">
               {props.icon}
             </span>
           </div>
-          <div className={borderClass(props)}></div>
+          <div className={`border-8 rounded-t ${borderClass(props)}`}></div>
           <div className="px-4 pt-8 pb-6">
             <div className="text-center mt-6">
               {props.children}

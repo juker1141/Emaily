@@ -44,7 +44,7 @@ class SurveyList extends React.Component {
       return (
         <Modal
           icon="delete_forever"
-          mainColor="red-600"
+          colorStatus="danger"
           actions={this.actionsButtons('red', 'gray')}
           onCancel={() => { this.setState({ showDeleteModal: false, currentSurveyId: '' }) }}
         >

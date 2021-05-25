@@ -27,7 +27,7 @@ class PaymentsSuccess extends React.Component {
       <div>
         <Modal
           icon="done"
-          mainColor="green-500"
+          colorStatus="success"
           actions={this.actionsButtons('green')}
         >
           <div className="text-xl font-black mb-5">Payments is Success</div>
