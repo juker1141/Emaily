@@ -68,18 +68,22 @@ class SurveyList extends React.Component {
         return (
           <div
             style={{
-              backgroundColor: `${survey.cardColor.mainColor}`,
               color: `${survey.cardColor.textColor}`,
             }}
-            className="mb-6 border rounded shadow-lg" key={survey._id}
+            className="mb-6 border rounded-lg shadow-lg" key={survey._id}
           >
-            <div className="px-8 py-6">
-              <div className="flex justify-between">
+            <div>
+              <div
+                style={{
+                  backgroundColor: `${survey.cardColor.mainColor}`
+                }}
+                className="flex justify-between px-8 py-5 rounded-t-lg">
                 <div className="text-3xl font-bold">{survey.title}</div>
                 <button
                   onClick={() => {
                     this.setState({ showDeleteModal: true, currentSurveyId: survey._id })
                   }}
+                  className="flex items-center"
                   type="button"
                 >
                   <span className="material-icons">
@@ -87,15 +91,25 @@ class SurveyList extends React.Component {
                   </span>
                 </button>
               </div>
-              <div className="flex justify-between mt-4">
-                <p>{survey.body}</p>
-                <p className="mt-4">Sent On: {new Date(survey.dateSent).toLocaleDateString()}</p>
-              </div>
-              <hr style={{ borderColor: `${survey.cardColor.textColor}` }} className="my-4" />
-              <div className="flex justify-center">
-                <div className="flex flex-col w-full text-xl">
-                  <p>Yes : {survey.yes}</p>
-                  <p>No : {survey.no}</p>
+              <div className="relative">
+                <div
+                  className="w-full h-full absolute -z-10 rounded-b-lg"
+                  style={{ backgroundColor: `${survey.cardColor.mainColor}`, opacity: ".3" }}
+                ></div>
+                <div className="flex justify-between px-8 py-4">
+                  <p>{survey.body}</p>
+                  <p className="mt-4">Sent On: {new Date(survey.dateSent).toLocaleDateString()}</p>
+                </div>
+                <hr style={{ borderColor: `${survey.cardColor.textColor}` }} className="my-4" />
+                <div className="flex justify-center py-4">
+                  <div className="flex justify-center w-full text-xl">
+                    <div className="px-5 py-2 bg-green-500 rounded-lg mr-5">
+                      Yes : {survey.yes}
+                    </div>
+                    <div className="px-5 py-2 bg-red-600 rounded-lg">
+                      No : {survey.no}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

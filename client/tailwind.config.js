@@ -5,7 +5,23 @@ module.exports = {
     extend: {
       inset: {
         'modalIcon': '41.59%',
-      }
+      },
+      zIndex: {
+        '-10': '-10',
+      },
+      colors: {
+        'white': '#DFDFDF',
+        'primary': '#121212',
+        'secondary': '#2c2c2c',
+      },
+      borderRadius: ['hover', 'focus'],
+    },
+    fontFamily: {
+      sans: [
+        'Roboto',
+        'system-ui',
+      ],
+      'FugazOne': ['"Fugaz One"', 'cursive']
     },
   },
   variants: {

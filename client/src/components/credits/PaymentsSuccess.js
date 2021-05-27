@@ -30,8 +30,8 @@ class PaymentsSuccess extends React.Component {
           colorStatus="success"
           actions={this.actionsButtons('green')}
         >
-          <div className="text-xl font-black mb-5">Payments is Success</div>
-          <div className="mb-3">Your credits is success be adding</div>
+          <div className="text-xl font-black mb-5">Success !</div>
+          <div className="mb-3">Your credits has been added successfully</div>
           <div className="font-bold">Try to send your first email</div>
         </Modal>
       </div>

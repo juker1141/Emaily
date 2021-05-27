@@ -29,9 +29,9 @@ const PaymentsCancel = () => {
         colorStatus="warning"
         actions={actionsButtons('yellow')}
       >
-        <div className="text-xl font-black mb-5">OOPS !</div>
-        <div className="mb-3 font-bold">Payments is Cancel</div>
-        <div>Maybe you want to chew it over</div>
+        <div className="text-xl font-black mb-5">Oops !</div>
+        <div className="mb-3 font-bold">Your payments has been canceled</div>
+        <div>( We won't charge you for any reason )</div>
       </Modal>
     </div>
   );

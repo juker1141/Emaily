@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { loadStripe } from '@stripe/stripe-js';
-import { FETCH_USER, FETCH_SURVEYS } from './types';
+import { FETCH_USER, FETCH_SURVEYS, TOGGLE_MENU, CLOSE_MENU } from './types';
 
 export const fetchUser = () => async (dispatch) => {
   const res = await axios.get('/api/current_user');
@@ -40,4 +40,13 @@ export const deleteSurvey = (id) => async (dispatch) => {
   const res = await axios.delete(`/api/surveys/delete`, { data: { SurveyId: id } });
 
   dispatch({ type: FETCH_SURVEYS, payload: res.data });
+};
+
+export const toggleMenu = (status) => {
+
+  return { type: TOGGLE_MENU, payload: status };
+};
+export const closeMenu = (status) => {
+
+  return { type: CLOSE_MENU, payload: status };
 };
