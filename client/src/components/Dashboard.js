@@ -12,7 +12,7 @@ const Dashboard = (props) => {
         <Link
           onClick={() => { props.closeMenu(false) }}
           to="/surveys/new"
-          className="p-3 bg-green-400 flex rounded-full"
+          className="p-3 bg-green-400 hover:bg-green-500 flex rounded-full"
         >
           <span className="material-icons-outlined text-primary text-4xl leading-none">
             add

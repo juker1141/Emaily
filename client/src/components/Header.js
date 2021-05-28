@@ -41,7 +41,8 @@ class Header extends React.Component {
                 <button
                   onClick={() => { this.props.addCredits(1) }}
                   className="inline-block px-6 py-3 leading-none text-primary
-                font-extrabold rounded text-base bg-green-400 focus:outline-none"
+                    font-extrabold rounded text-base bg-green-400
+                    hover:bg-green-500 focus:outline-none"
                 >
                   Add Credits
               </button>

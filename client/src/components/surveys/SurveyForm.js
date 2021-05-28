@@ -31,13 +31,13 @@ class SurveyForm extends React.Component {
                 to="/surveys"
                 className="text-base border-2 font-bold py-2 px-6
                 focus:outline-none focus:shadow-outline rounded
-                hover:bg-gray-500 hover:text-white hover:border-white"
+                hover:bg-white hover:text-primary hover:border-0"
               >
                 Cancel
               </Link>
               <button
-                className="bg-blue-500 text-white text-base font-bold py-2 px-6
-                flex items-center rounded hover:bg-blue-700"
+                className="bg-purple-500 text-primary text-base font-bold py-2 px-6
+                flex items-center rounded hover:bg-purple-600"
                 type="submit"
               >
                 Next

@@ -39,14 +39,14 @@ const Modal = (props) => {
         className="relative w-1/5 mx-auto mt-72 opacity-100"
       >
         <div
-          className="relative bg-white shadow-lg rounded-md text-gray-900 z-20"
+          className="relative bg-white shadow-lg rounded-lg text-gray-900 z-20"
         >
           <div className={`absolute -top-6 left-modalIcon rounded-full ${iconClass(props)}`}>
             <span className="material-icons-outlined text-5xl p-2 text-white">
               {props.icon}
             </span>
           </div>
-          <div className={`border-8 rounded-t ${borderClass(props)}`}></div>
+          <div className={`border-8 rounded-t-lg ${borderClass(props)}`}></div>
           <div className="px-4 pt-8 pb-6">
             <div className="text-center mt-6">
               {props.children}

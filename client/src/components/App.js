@@ -18,7 +18,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="bg-primary overflow-y-hidden h-screen text-white">
+      <div className="bg-primary overflow-x-hidden h-screen text-white">
         <BrowserRouter>
           <div className="container mx-auto">{/* BrowserRouter 內只能有一個元件 所以我們用一個 div 包起來 */}
             <Header />

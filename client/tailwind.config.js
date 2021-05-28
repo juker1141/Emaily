@@ -12,7 +12,8 @@ module.exports = {
       colors: {
         'white': '#DFDFDF',
         'primary': '#121212',
-        'secondary': '#2c2c2c',
+        'secondary': '#242424',
+        'third': '#BB86FC',
       },
       borderRadius: ['hover', 'focus'],
     },

@@ -24,15 +24,15 @@ const SurveyFormReview = ({ onCancel, formValues, submitSurvey, history }) => {
           <button
             className="text-base border-2 font-bold py-2 px-6
             focus:outline-none focus:shadow-outline rounded
-            hover:border-white hover:bg-gray-500 hover:text-white"
+            hover:border-0 hover:bg-white hover:text-primary"
             onClick={onCancel}
           >
             Back
           </button>
           <button
             onClick={() => submitSurvey(formValues, history)}
-            className="bg-green-500 text-white text-base font-bold
-            py-2 px-6 flex items-center rounded hover:bg-green-600"
+            className="bg-green-400 text-primary text-base font-bold
+            py-2 px-6 flex items-center rounded hover:bg-green-500"
           >
             Send Survey
             <span className="material-icons ml-3">
