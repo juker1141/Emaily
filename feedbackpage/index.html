@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a46ef2ddc5.js" crossorigin="anonymous"></script>
+  <style>
+    .h-screen {
+      height: 100vh;
+    }
+
+    .w-0 {
+      width: 0 !important;
+    }
+
+    @media (min-width: 992px) {
+      .w-lg-50 {
+        width: 50% !important;
+      }
+    }
+
+    .font-FugazOne {
+      font-family: 'Fugaz One', cursive;
+    }
+
+    .img {
+      background-image: url('https://images.unsplash.com/photo-1582578598774-a377d4b32223?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+
+    .text-white {
+      color: #DFDFDF !important;
+    }
+
+    .text-primary {
+      color: #121212 !important;
+    }
+
+    .bg-primary {
+      background: #121212 !important;
+    }
+
+    .backdrop-blur {
+      background-color: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(5px);
+    }
+  </style>
+</head>
+
+<body class="overflow-hidden">
+  <div class="d-flex">
+    <div class="w-50 d-none d-lg-block h-screen bg-primary p-5">
+      <div class="container">
+        <div class="d-flex">
+          <a href="#" class="fs-1 text-decoration-none d-flex align-items-center text-white">
+            <i class="fas fa-paper-plane pe-2"></i>
+            <span class="font-FugazOne">Emaily</span>
+          </a>
+        </div>
+      </div>
+      <div class="w-100 h-75 d-flex justify-content-center align-items-center">
+        <div class="text-white text-center fs-2 fw-bolder">Thank you for voting !!</div>
+      </div>
+    </div>
+    <div class="img w-100 w-lg-50 h-screen">
+      <div class="d-block d-lg-none h-screen p-5">
+        <div class="d-flex">
+          <a href="https://vast-retreat-86807.herokuapp.com/"
+            class="fs-1 text-decoration-none d-flex align-items-center text-white">
+            <i class="fas fa-paper-plane pe-2"></i>
+            <span class="font-FugazOne">Emaily</span>
+          </a>
+        </div>
+        <div class="w-100 h-75 d-flex justify-content-center align-items-center">
+          <div class="w-75 py-5 d-flex justify-content-center backdrop-blur align-items-center">
+            <div class="text-white text-center fs-2 fw-bolder">Thank you for voting !!</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

@@ -1,33 +1,33 @@
 const cardColors = [
   {
     colorName: 'orange',
-    mainColor: '#FA755B',
+    mainColor: '#F57C00',
     textColor: '#FFFFFF',
-    shadowColor: '#BC786B',
+  },
+  {
+    colorName: 'yellow',
+    mainColor: '#FFCA28',
+    textColor: '#121212',
   },
   {
     colorName: 'pink',
     mainColor: '#FF7292',
     textColor: '#FFFFFF',
-    shadowColor: '#A44D61',
   },
   {
     colorName: 'green',
     mainColor: '#34d399',
-    textColor: '#FFFFFF',
-    shadowColor: '#4CAA87',
+    textColor: '#121212',
   },
   {
     colorName: 'purple',
     mainColor: '#8443D4',
     textColor: '#FFFFFF',
-    shadowColor: '#775d98',
   },
   {
     colorName: 'peony',
     mainColor: '#9a348e',
     textColor: '#FFFFFF',
-    shadowColor: '#774071',
   },
 ]
 

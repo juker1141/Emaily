@@ -1,5 +1,6 @@
 const _ = require('lodash');
 const { Path } = require('path-parser');
+const path = require('path');
 const { URL } = require('url'); // node.js 裡面就有的 library
 const mongoose = require('mongoose');
 const bodyParser = require("body-parser");
@@ -7,7 +8,8 @@ const requireLogin = require('../middlewares/requireLogin');
 const requireCredits = require('../middlewares/requireCredits');
 const MailgunMailer = require('../services/MailgunMailer');
 const surveyTemplate = require('../services/emailTemplates/surveyTemplate');
-const cardColors = require('../utils/cardColors')
+const cardColors = require('../utils/cardColors');
+const { divide } = require('lodash');
 
 const Survey = mongoose.model('surveys');
 
@@ -31,7 +33,7 @@ module.exports = (app) => {
   });
 
   app.get('/api/surveys/:surveyId/:choice', (req, res) => {
-    res.send('Thanks for voting!');// 可以更改得更好!! 讓用戶更有屋回饋的感覺
+    res.sendFile(path.resolve('feedbackpage/index.html'));// 可以更改得更好!! 讓用戶更有屋回饋的感覺
   });
 
   app.post('/api/surveys/webhooks', bodyParser.urlencoded(), (req, res) => {
@@ -60,11 +62,14 @@ module.exports = (app) => {
 
     const cardColor = cardColors[Math.floor(Math.random() * cardColors.length)];
 
+    const emails = recipients.split(",").map((email) => ({ email: email.trim() }));
+
     const survey = new Survey({
       title,
       subject,
       body,
-      recipients: recipients.split(",").map((email) => ({ email: email.trim() })),
+      recipients: emails,
+      recipientsNum: emails.length,
       _user: req.user.id,
       dateSent: Date.now(),
       cardColor,

@@ -36,15 +36,17 @@ const Modal = (props) => {
     >
       <div
         onClick={(e) => { e.stopPropagation() }}
-        className="relative w-1/5 mx-auto mt-72 opacity-100"
+        className="relative w-3/5 md:w-3/5 lg:w-2/5 xl:w-2/5 2xl:w-1/5 mx-auto mt-72 opacity-100"
       >
         <div
-          className="relative bg-white shadow-lg rounded-lg text-gray-900 z-20"
+          className="relative bg-third shadow-lg rounded-lg text-white z-20"
         >
-          <div className={`absolute -top-6 left-modalIcon rounded-full ${iconClass(props)}`}>
-            <span className="material-icons-outlined text-5xl p-2 text-white">
-              {props.icon}
-            </span>
+          <div className="absolute inset-x-1/2 -top-6 flex justify-center">
+            <div className={`w-16 h-16 rounded-full ${iconClass(props)}`}>
+              <span className="material-icons-outlined text-5xl p-2 text-third">
+                {props.icon}
+              </span>
+            </div>
           </div>
           <div className={`border-8 rounded-t-lg ${borderClass(props)}`}></div>
           <div className="px-4 pt-8 pb-6">

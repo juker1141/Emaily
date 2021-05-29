@@ -3,9 +3,6 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
-      inset: {
-        'modalIcon': '41.59%',
-      },
       zIndex: {
         '-10': '-10',
       },
@@ -13,7 +10,8 @@ module.exports = {
         'white': '#DFDFDF',
         'primary': '#121212',
         'secondary': '#242424',
-        'third': '#BB86FC',
+        'third': '#2D2D2D',
+        'fourth': '#383838',
       },
       borderRadius: ['hover', 'focus'],
     },

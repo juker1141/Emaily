@@ -8,7 +8,7 @@ const PaymentsCancel = () => {
       <React.Fragment>
         <Link
           to="/surveys"
-          className={`bg-${mainColor}-400 text-white px-6 py-2 font-bold rounded
+          className={`bg-${mainColor}-400 text-third px-6 py-2 font-bold rounded
               hover:bg-${mainColor}-600 focus:outline-none focus:ring
               hover:shadow-none transition-all duration-300
               flex items-center`}
