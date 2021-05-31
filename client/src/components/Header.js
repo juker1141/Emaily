@@ -25,8 +25,9 @@ class Header extends React.Component {
             <li className="flex justify-end px-16 py-3 w-full p-6">
               <a
                 href="/auth/google"
-                className="inline-block px-6 py-3 hover:bg-white hover:text-secondary rounded-tl-lg
-                leading-none border-b-2 border-r-2 text-white text-base duration-500 rounded-br-lg"
+                className="inline-block px-8 py-4 md:px-6 md:py-3 leading-none border-b-2
+                border-r-2 text-white text-base rounded-br-lg hover:bg-white
+                hover:text-secondary rounded-tl-lg text-xl"
               >
                 Login with Google
               </a>
@@ -61,24 +62,27 @@ class Header extends React.Component {
           ];
         } else {
           return [
-            <li key="1" className="flex justify-end w-full px-16 mb-3">
+            <li key="1" className="flex justify-end w-full text-xl px-16 mt-4 mb-3">
               Credits: {this.props.auth.credits}
             </li>,
             <li key="2" className="py-3 flex justify-end w-full px-16 mb-3">
               <Payments>
                 <button
                   onClick={() => { this.props.addCredits(1) }}
-                  className="inline-block px-6 py-3 leading-none text-green-400 rounded-br-lg rounded-tl-lg
-                font-extrabold text-base focus:outline-none border-b-2 border-r-2 border-green-400
-                hover:bg-green-400 hover:text-secondary"
+                  className="inline-block px-8 py-4 md:px-6 md:py-3 leading-none text-green-400
+                  rounded-br-lg rounded-tl-lg font-extrabold text-base focus:outline-none
+                  border-b-2 border-r-2 border-green-400 hover:bg-green-400 hover:text-secondary text-xl"
                 >
                   Add Credits
                 </button>
               </Payments>
             </li>,
             <li key="3" className="flex justify-end w-full px-16 mb-3">
-              <a href="/api/logout" className="inline-block px-6 py-3 leading-none border-b-2  border-r-2
-              text-white text-base rounded-br-lg hover:bg-white hover:text-secondary rounded-tl-lg"
+              <a
+                href="/api/logout"
+                className="inline-block px-8 py-4 md:px-6 md:py-3 leading-none border-b-2
+                border-r-2 text-white text-base rounded-br-lg hover:bg-white
+                hover:text-secondary rounded-tl-lg text-xl"
               >
                 Logout
               </a>
@@ -116,7 +120,7 @@ class Header extends React.Component {
         </button>
         <div
           className={`fixed inset-y-0 md:w-1/2 w-full h-screen bg-secondary transition-all
-          duration-500 flex justify-center
+          duration-500 flex justify-center z-10
           xl:hidden ${this.props.showMenu ? 'right-0' : '-right-full'}`}
         >
           <ul className="items-center flex flex-col md:w-3/4 w-full">

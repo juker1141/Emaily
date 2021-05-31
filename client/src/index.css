@@ -45,3 +45,11 @@ input:-webkit-autofill:active {
   display: inline-block;
   width: 100%;
 }
+
+@media (max-width: 1280px) {
+  .truncate_sm {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
