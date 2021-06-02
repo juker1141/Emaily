@@ -94,15 +94,15 @@ class Header extends React.Component {
 
   render() {
     return (
-      <nav className="flex items-center justify-between flex-wrap p-6 mb-12 relative">
+      <nav className="flex items-center justify-between flex-wrap p-6 z-10 bg-primary fixed w-full container">
         <Link
           to={this.props.auth ? '/surveys' : '/'}
-          className="flex items-center text-2xl"
+          className="flex items-center text-3xl lg:text-4xl"
         >
-          <span className="text-4xl mr-2">
+          <span className="mr-2">
             <i className="fas fa-paper-plane"></i>
           </span>
-          <span className="font-FugazOne text-4xl">Emaily</span>
+          <span className="font-FugazOne">Emaily</span>
         </Link>
         <div className="xl:block hidden">
           <ul className="items-center flex">
@@ -120,19 +120,19 @@ class Header extends React.Component {
         </button>
         <div
           className={`fixed inset-y-0 md:w-1/2 w-full h-screen bg-secondary transition-all
-          duration-500 flex justify-center z-10
+          duration-500 flex justify-center z-20
           xl:hidden ${this.props.showMenu ? 'right-0' : '-right-full'}`}
         >
           <ul className="items-center flex flex-col md:w-3/4 w-full">
             <li className="flex md:justify-end justify-between items-center w-full p-6">
               <Link
                 to={this.props.auth ? '/surveys' : '/'}
-                className="flex items-center text-2xl md:hidden"
+                className="flex items-center text-3xl lg:text-4xl md:hidden"
               >
-                <span className="text-4xl mr-2">
+                <span className="mr-2">
                   <i className="fas fa-paper-plane"></i>
                 </span>
-                <span className="font-FugazOne text-4xl">Emaily</span>
+                <span className="font-FugazOne">Emaily</span>
               </Link>
               <button
                 onClick={() => { this.props.toggleMenu(!this.props.showMenu) }}

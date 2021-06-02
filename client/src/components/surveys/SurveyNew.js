@@ -18,7 +18,7 @@ class SurveyNew extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="pt-36">
         {this.renderContent()}
       </div>
     );

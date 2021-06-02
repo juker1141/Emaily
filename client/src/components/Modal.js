@@ -36,7 +36,7 @@ const Modal = (props) => {
     >
       <div
         onClick={(e) => { e.stopPropagation() }}
-        className="relative w-11/12 md:w-3/5 lg:w-2/5 xl:w-2/5 2xl:w-1/5 mx-auto mt-72 opacity-100"
+        className="relative w-11/12 md:w-3/5 lg:w-2/5 xl:w-2/5 2xl:w-1/5 mx-auto mt-52 lg:mt-72 opacity-100"
       >
         <div
           className="relative bg-third shadow-lg rounded-lg text-white z-20"

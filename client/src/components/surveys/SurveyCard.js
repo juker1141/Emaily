@@ -99,7 +99,7 @@ class SurveyCard extends React.Component {
             className="flex flex-col px-5 xl:px-8 py-4 text-white"
           >
             <p className="text-right text-sm mb-3">Sent On: {new Date(survey.dateSent).toLocaleDateString()}</p>
-            <p className={`${this.state.showBodyDetail ? '' : 'truncate_sm'}`}>{survey.body}</p>
+            <p className={`break-words ${this.state.showBodyDetail ? '' : 'truncate_sm'}`}>{survey.body}</p>
           </div>
           <div className="flex items-center bg-third rounded-b-lg justify-center py-4 px-6 text-white">
             {this.renderProgress(survey)}

@@ -64,6 +64,7 @@ module.exports = (app) => {
 
     const emails = recipients.split(",").map((email) => ({ email: email.trim() }));
 
+
     const survey = new Survey({
       title,
       subject,
@@ -75,11 +76,18 @@ module.exports = (app) => {
       cardColor,
     });
 
+
     // 這裡很適合寄 Email
-    const mailer = new MailgunMailer(survey, surveyTemplate(survey));
+    // 
+    // mailer.sendSingleEmail();
 
     try {
-      await mailer.send();
+
+      emails.map(async ({ email }) => {
+        const mailer = new MailgunMailer(subject, email, surveyTemplate(survey));
+
+        await mailer.send();
+      });
       await survey.save();
       req.user.credits -= 1;
       const user = await req.user.save();

@@ -6,7 +6,7 @@ import SurveyList from './surveys/SurveyList';
 
 const Dashboard = (props) => {
   return (
-    <div>
+    <div className="pt-36">
       <SurveyList />
       <div className="fixed bottom-0 right-0 mb-7 mr-7">
         <Link

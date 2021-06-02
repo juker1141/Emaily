@@ -20,7 +20,8 @@ class App extends React.Component {
     return (
       <div className="bg-primary overflow-x-hidden h-screen text-white">
         <BrowserRouter>
-          <div className="container mx-auto">{/* BrowserRouter 內只能有一個元件 所以我們用一個 div 包起來 */}
+          <div className="container mx-auto relative">
+            {/* BrowserRouter 內只能有一個元件 所以我們用一個 div 包起來 */}
             <Header />
             <Route exact path="/" component={Landing} />
             <Route exact path="/surveys" component={Dashboard} />

@@ -10,7 +10,7 @@ const SurveyFormReview = ({ onCancel, formValues, submitSurvey, history }) => {
     return (
       <div className="mb-4" key={field.name}>
         <label className="text-gray-500">{field.label}</label>
-        <div className="text-xl mt-1">{formValues[field.name]}</div>
+        <div className="text-xl mt-1 break-words">{formValues[field.name]}</div>
       </div>
     );
   })
