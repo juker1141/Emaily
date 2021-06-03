@@ -2,7 +2,7 @@ import React from 'react';
 
 const Landing = () => {
   return (
-    <div className="text-center">
+    <div className="text-center pt-36">
       <h1 className="text-5xl font-bold mb-12">Emaily!</h1>
       Collect feedback form your users
     </div>
