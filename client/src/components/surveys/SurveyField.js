@@ -27,9 +27,9 @@ class SurveyField extends React.Component {
     } else if (this.props.label === 'Email Body' || this.props.label === 'Recipient List') {
       return (
         <div className="mb-4">
-          <label className="block text-white text-base font-bold mb-4">
+          <label className="text-white flex flex-col lg:flex-row lg:items-center text-base font-bold mb-4">
             {this.props.label}
-            {this.props.label === 'Recipient List' ? <span className="ml-2 text-sm">( Use commas to separate email )</span> : ''}
+            {this.props.label === 'Recipient List' ? <span className="lg:ml-2 text-sm">( Use commas to separate email )</span> : ''}
           </label>
           <TextareaAutosize
             rows={4}

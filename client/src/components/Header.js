@@ -94,7 +94,7 @@ class Header extends React.Component {
 
   render() {
     return (
-      <nav className="flex items-center justify-between flex-wrap p-6 z-10 bg-primary fixed w-full container">
+      <nav className="flex items-center justify-between flex-wrap py-4 lg:py-6 px-6 z-10 bg-primary fixed w-full container">
         <Link
           to={this.props.auth ? '/surveys' : '/'}
           className="flex items-center text-3xl lg:text-4xl"
@@ -124,7 +124,7 @@ class Header extends React.Component {
           xl:hidden ${this.props.showMenu ? 'right-0' : '-right-full'}`}
         >
           <ul className="items-center flex flex-col md:w-3/4 w-full">
-            <li className="flex md:justify-end justify-between items-center w-full p-6">
+            <li className="flex md:justify-end justify-between items-center w-full py-4 lg:py-6 px-6">
               <Link
                 to={this.props.auth ? '/surveys' : '/'}
                 className="flex items-center text-3xl lg:text-4xl md:hidden"
@@ -144,7 +144,6 @@ class Header extends React.Component {
               </span>
               </button>
             </li>
-
             {this.renderContent()}
           </ul>
         </div>
