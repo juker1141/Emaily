@@ -25,7 +25,7 @@ class SurveyList extends React.Component {
             border-${secondarycolor} hover:bg-${secondarycolor} hover:text-third hover:border-0 focus:outline-none focus:ring hover:shadow-none transition-all duration-300`}
         >
           Cancel
-            </button>
+        </button>
         <button
           onClick={() => {
             this.props.deleteSurvey(this.state.currentSurveyId);
@@ -68,7 +68,7 @@ class SurveyList extends React.Component {
 
   renderSurveys() {
     if (this.props.surveys) {
-      return this.props.surveys.map((survey) => {
+      return this.props.surveys.reverse().map((survey) => {
         return (
           <SurveyCard
             key={survey._id}
@@ -84,22 +84,70 @@ class SurveyList extends React.Component {
   };
 
   render() {
-    return (
-      <div className="flex justify-center mx-5 md:mx-8">
-        <div className="w-full">
-          <div className="flex justify-start">
-            <p className="text-xl my-4">{this.props.surveys.length} survey in List</p>
+    if (this.props.surveys === null) {
+      return null;
+    } else if (this.props.surveys && this.props.surveys.length === 0) {
+      return (
+        <div className="pt-24">
+          <div className="flex flex-col md:flex-row justify-center items-center mb-10">
+            <div className="flex justify-center items-center mb-3 md:mb-0">
+              1. Click
+              <div className="flex items-center xl:hidden">
+                <span className="material-icons p-3">
+                  menu
+                </span>
+                and
+                <div
+                  className="inline-block px-4 py-3 md:px-4 md:py-3 leading-none
+                text-green-400 rounded-br-lg rounded-tl-lg font-extrabold mx-3
+                border-b-2 border-r-2 border-green-400 text-sm"
+                >
+                  Add Credits
+                </div>
+              </div>
+              <div
+                className="hidden px-4 py-3 leading-none text-primary
+              font-extrabold rounded mx-3 bg-green-400 xl:inline-block"
+              >
+                Add Credits
+              </div>
+            </div>
+            to add some credits
           </div>
-          <div className="card-columns">{this.renderSurveys()}</div>
-          {this.renderDeleteModal()}
+          <div className="flex justify-center items-center">
+            2. Click
+            <div
+              className="p-3 bg-green-400 filter brightness-110 shadow-lg
+            flex items-center justify-center rounded-full w-10 h-10 mx-3"
+            >
+              <span className="material-icons-outlined text-primary text-2xl leading-none">
+                add
+              </span>
+            </div>
+            to send your first survey mail !
+          </div>
         </div>
-      </div>
-    );
+      );
+    } else if (this.props.surveys && this.props.surveys.length > 0) {
+      return (
+        <div className="flex justify-center mx-5 md:mx-8">
+          <div className="w-full">
+            <div className="flex justify-start">
+              <p className="text-xl my-4">{this.props.surveys.length} survey in List</p>
+            </div>
+            <div className="card-columns">{this.renderSurveys()}</div>
+            {this.renderDeleteModal()}
+          </div>
+        </div>
+      );
+    }
+
+
   };
 };
 
 const mapStateToProps = (state) => {
-  return { surveys: state.surveys.reverse() };
+  return { surveys: state.surveys };
 };
 
 export default connect(

@@ -3,7 +3,7 @@ const { Path } = require('path-parser');
 const path = require('path');
 const { URL } = require('url'); // node.js 裡面就有的 library
 const mongoose = require('mongoose');
-const bodyParser = require("body-parser");
+const express = require('express');
 const requireLogin = require('../middlewares/requireLogin');
 const requireCredits = require('../middlewares/requireCredits');
 const MailgunMailer = require('../services/MailgunMailer');
@@ -36,7 +36,7 @@ module.exports = (app) => {
     res.sendFile(path.resolve('feedbackpage/index.html'));// 可以更改得更好!! 讓用戶更有屋回饋的感覺
   });
 
-  app.post('/api/surveys/webhooks', bodyParser.urlencoded(), (req, res) => {
+  app.post('/api/surveys/webhooks', express.urlencoded(), (req, res) => {
     const p = new Path('/api/surveys/:surveyId/:choice');
     const { recipient: email, url, event } = req.body["event-data"];
     const match = p.test(new URL(url).pathname);

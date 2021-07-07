@@ -13,11 +13,14 @@ class Header extends React.Component {
         if (status === 'normal') {
           return (
             <li>
-              <a href="/auth/google" className="inline-block px-6 py-3 leading-none border
-              rounded text-white hover:bg-white hover:text-primary text-base"
+              <a
+                href="/auth/google"
+                className="inline-block px-6 py-3 leading-none text-primary
+                  font-extrabold rounded text-base bg-green-400
+                  hover:bg-green-500 focus:outline-none"
               >
                 Login with Google
-            </a>
+              </a>
             </li>
           );
         } else {
@@ -25,9 +28,9 @@ class Header extends React.Component {
             <li className="flex justify-end px-16 py-3 w-full p-6">
               <a
                 href="/auth/google"
-                className="inline-block px-8 py-4 md:px-6 md:py-3 leading-none border-b-2
-                border-r-2 text-white text-base rounded-br-lg hover:bg-white
-                hover:text-secondary rounded-tl-lg text-xl"
+                className="inline-block px-8 py-4 md:px-6 md:py-3 leading-none text-green-400
+                  rounded-br-lg rounded-tl-lg font-extrabold text-base focus:outline-none
+                  border-b-2 border-r-2 border-green-400 hover:bg-green-400 hover:text-secondary text-xl"
               >
                 Login with Google
               </a>
@@ -46,7 +49,7 @@ class Header extends React.Component {
                     hover:bg-green-500 focus:outline-none"
                 >
                   Add Credits
-              </button>
+                </button>
               </Payments>
             </li>,
             <li key="2" className="mr-3 px-4 py-3">
@@ -141,7 +144,7 @@ class Header extends React.Component {
               >
                 <span className="material-icons p-3">
                   menu
-              </span>
+                </span>
               </button>
             </li>
             {this.renderContent()}
