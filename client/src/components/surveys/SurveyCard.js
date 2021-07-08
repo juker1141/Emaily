@@ -12,7 +12,7 @@ class SurveyCard extends React.Component {
       const surveyMedian = 100 - surveyYes - surveyNo;
 
       return (
-        <React.Fragment>
+        <div className="flex items-center relative w-full">
           <span className={`xl:text-xl ${surveyMedian === 0 && surveyYes === 0 ? 'hidden' : ''}`}>Yes</span>
           <div
             style={{
@@ -23,14 +23,12 @@ class SurveyCard extends React.Component {
             <div
               style={{
                 backgroundColor: `${survey.cardColor.mainColor}`,
-                color: `${survey.cardColor.textColor}`,
                 width: `${surveyYes}%`,
               }}
               className={`flex flex-col justify-center text-center
               filter brightness-150 font-bold rounded-l-full
               ${surveyYes === 100 ? 'rounded-r-full' : ''}`}
             >
-              {surveyYes ? `${surveyYes} %` : null}
             </div>
             <div
               style={{
@@ -45,18 +43,25 @@ class SurveyCard extends React.Component {
             <div
               style={{
                 backgroundColor: `${survey.cardColor.mainColor}`,
-                color: `${survey.cardColor.textColor}`,
                 width: `${surveyNo}%`
               }}
               className={`flex flex-col justify-center text-center
               filter brightness-110 w-1/4 rounded-r-full
               ${surveyNo === 100 ? 'rounded-l-full' : ''}`}
             >
-              {surveyNo ? `${surveyNo} %` : null}
             </div>
           </div>
           <span className={`xl:text-xl ${surveyMedian === 0 && surveyNo === 0 ? 'hidden' : ''}`}>No</span>
-        </React.Fragment>
+          <div className="absolute px-14 w-full">
+            <div
+              style={{ color: `${survey.cardColor.textColor}`, }}
+              className="flex justify-between font-bold"
+            >
+              <div>{surveyYes ? `${surveyYes} %` : null}</div>
+              <div>{surveyNo ? `${surveyNo} %` : null}</div>
+            </div>
+          </div>
+        </div>
       );
     };
     return (
