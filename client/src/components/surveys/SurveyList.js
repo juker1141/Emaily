@@ -68,7 +68,7 @@ class SurveyList extends React.Component {
 
   renderSurveys() {
     if (this.props.surveys) {
-      return this.props.surveys.reverse().map((survey) => {
+      return this.props.surveys.map((survey) => {
         return (
           <SurveyCard
             key={survey._id}
@@ -147,6 +147,9 @@ class SurveyList extends React.Component {
 };
 
 const mapStateToProps = (state) => {
+  if (state.surveys) {
+    return { surveys: state.surveys.reverse() };
+  }
   return { surveys: state.surveys };
 };
 
