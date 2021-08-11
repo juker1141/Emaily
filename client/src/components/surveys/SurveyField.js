@@ -3,8 +3,6 @@ import TextareaAutosize from 'react-textarea-autosize';
 
 class SurveyField extends React.Component {
   render() {
-    const recipientTip = `<span className="ml-3 text-sm">( Use commas to separate email )</span>`;
-
     if (this.props.label === 'Survey Title' || this.props.label === 'Subject Line') {
       return (
         <div className="mb-4">
