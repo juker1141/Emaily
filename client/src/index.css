@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+.font-Roboto {
+  font-family: "Roboto", sans-serif;
+}
+
+.font-FugazOne {
+  font-family: "Fugaz One", cursive;
+}
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,

@@ -15,13 +15,6 @@ module.exports = {
       },
       borderRadius: ['hover', 'focus'],
     },
-    fontFamily: {
-      sans: [
-        'Roboto',
-        'system-ui',
-      ],
-      'FugazOne': ['"Fugaz One"', 'cursive']
-    },
   },
   variants: {
     extend: {},
