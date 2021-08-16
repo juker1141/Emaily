@@ -9,7 +9,7 @@ const Landing = () => {
         to Emaily!
       </h1>
       <div className="text-xl mb-6 xl:mb-10">Collect feedback from your users</div>
-      <div className="text-sm flex flex-col md:flex-row items-center justify-center">
+      <div className="text-xl flex flex-col md:flex-row items-center justify-center">
         <div className="flex items-center justify-center mb-3 md:mb-0">
           Click
           <div className="flex items-center xl:hidden">
